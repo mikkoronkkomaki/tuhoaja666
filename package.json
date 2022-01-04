@@ -1,0 +1,38 @@
+{
+	"scripts": {
+		"clear-target": "rm -rf target",
+		"dev": "sh dev/fix-shadow-cljs-nrepl.sh",
+		"prod": "npm ci && npm run clear-target && npx shadow-cljs release tuhoaja666",
+		"dev-npm": "npx shadow-cljs -A:dev watch tuhoaja666-npm",
+		"pretest": "npm run clear-target && mkdir -p target/test/resources",
+		"test": "npm run pretest && npx shadow-cljs -A:dev watch test",
+		"preci": "npm ci && npm run clear-target && mkdir -p target/test/resources",
+		"ci": "npm run preci && npx shadow-cljs -A:test compile ci && npx karma start",
+		"webpack-dev": "npx concurrently \"npm run dev-npm\" \"npx webpack-dev-server\"",
+		"clean": "rm -rf target node_modules .shadow-cljs .cpcache dist"
+	},
+	"dependencies": {
+		"@js-joda/core": "3.2.0",
+		"create-react-class": "^15.7.0",
+		"date-fns": "^2.16.1",
+		"highlight.js": "^9.18.1",
+		"jsonata": "^1.8.3",
+		"react": "^17.0.1",
+		"react-datepicker": "4.1.1",
+		"react-dom": "^17.0.1",
+		"react-flip-move": "^3.0.4",
+		"react-highlight.js": "^1.0.7",
+		"shadow-cljs": "^2.9.10",
+		"xmlhttprequest": "^1.8.0"
+	},
+	"devDependencies": {
+		"concurrently": "^5.2.0",
+		"html-webpack-plugin": "^3.2.0",
+		"karma": "^6.0.0",
+		"karma-chrome-launcher": "^3.1.0",
+		"karma-cljs-test": "^0.1.0",
+		"webpack": "^4.43.0",
+		"webpack-cli": "^3.3.11",
+		"webpack-dev-server": "^3.11.0"
+	}
+}

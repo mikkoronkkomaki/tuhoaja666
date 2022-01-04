@@ -1,0 +1,45 @@
+{:paths ["src"
+         "resources"]
+
+ :deps {org.clojure/clojure {:mvn/version "1.10.1"}
+        org.clojure/clojurescript {:mvn/version "1.10.773"}
+
+        ;; Common
+        thheller/shadow-cljs {:mvn/version "2.11.14"}
+        com.velisco/strgen {:mvn/version "0.1.8"}
+        com.rpl/specter {:mvn/version "1.1.3"}
+        reagent/reagent {:mvn/version "1.0.0"}
+        re-frame/re-frame {:mvn/version "1.2.0"}
+        day8.re-frame/async-flow-fx {:mvn/version "0.1.0"}
+        day8.re-frame/http-fx {:mvn/version "0.2.2"}
+        cljs-http/cljs-http {:mvn/version "0.1.46"}
+        stylefy/stylefy {:mvn/version "2.2.1"}
+        metosin/reitit {:mvn/version "0.5.13"}
+        thheller/shadow-cljsjs {:mvn/version "0.0.21"}
+        org.clojure/core.async {:mvn/version "1.3.610"}
+        com.taoensso/timbre {:mvn/version "5.1.0"}
+
+        ;; CLJ-deps for crossover codes (cljc)
+        com.lucasbradstreet/cljs-uuid-utils {:mvn/version "1.0.2"}
+
+        com.github.velho-allianssi/velho-ds {:mvn/version "0.0.0.93" :exclusions [cljsjs/react-with-addons stylefy/stylefy]}}
+ :mvn/repos {"central" {:url "https://repo1.maven.org/maven2/"}
+             "clojars" {:url "https://clojars.org/repo"}
+             "jitpack" {:url "https://jitpack.io"}}
+ 
+ :aliases {:dev {:extra-deps {clj-chrome-devtools/clj-chrome-devtools {:mvn/version "20200423"}
+                              day8.re-frame/re-frame-10x {:mvn/version "1.0.0"}
+                              day8.re-frame/tracing {:mvn/version "0.6.0"}
+                              day8.re-frame/test {:mvn/version "0.1.5"}
+                              binaryage/devtools {:mvn/version "1.0.2"}}
+                 :extra-paths ["dev/src/clj"
+                               "dev/resources"
+                               "target/dev"
+
+                               "test/cljs"
+                               "target/test/resources"]}
+           :test {:extra-deps {day8.re-frame/test {:mvn/version "0.1.5"}}
+                  :extra-paths ["test/cljs"
+                                "target/test/resources"]}
+           :outdated {:extra-deps {olical/depot {:mvn/version "2.1.0"}}
+                      :main-opts ["-m" "depot.outdated.main" "--aliases" "outdated"]}}}

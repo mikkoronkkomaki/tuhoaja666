@@ -10,6 +10,7 @@
     [stylefy.reagent :as stylefy-reagent]
     [tuhoaja666.app.view :as app-view]
     [tuhoaja666.calculator.model :as calculator-model]
+    [tuhoaja666.history.model :as history-model]
     [tuhoaja666.routes :as routes]))
 
 (defonce selected-view (r/atom nil))
@@ -27,4 +28,5 @@
 
 (defn init []
   (re-frame/dispatch-sync [calculator-model/reset])
+  (re-frame/dispatch-sync [history-model/reset])
   (mount-root))

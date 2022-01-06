@@ -20,6 +20,6 @@
 
 ;; Specs
 (s/def ::literal (s/or
-                   :n int?
+                   :n number?
                    :f #{+ - / *}))
 (s/def ::clause (s/coll-of ::literal))

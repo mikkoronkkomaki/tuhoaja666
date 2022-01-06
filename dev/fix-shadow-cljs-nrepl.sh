@@ -12,6 +12,6 @@ link_nrepl_port(){
   exit
 }
 
-npx shadow-cljs -A:dev watch app & (link_nrepl_port)
+npx shadow-cljs -A:dev watch app browser-test & (link_nrepl_port)
 
 wait

@@ -1,6 +1,7 @@
 (ns tuhoaja666.calculator.controller
   (:require [re-frame.core :as re-frame]
-            [tuhoaja666.calculator.model :as model]))
+            [tuhoaja666.calculator.model :as model]
+            [clojure.spec.alpha :as s]))
 
 (def default-state {:current-value 0
                     :clause []})
@@ -47,6 +48,8 @@
 (re-frame/reg-event-db model/division division)
 
 (defn evaluate-clause [clause]
+  (assert (s/valid? ::model/clause clause)
+          (str "Invalid clause. Will not evaluate: " (s/explain-str ::model/clause clause)))
   (:previous-value
     (reduce
       (fn [{:keys [previous-value operator] :as acc} current]

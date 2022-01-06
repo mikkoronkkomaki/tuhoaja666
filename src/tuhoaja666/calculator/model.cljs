@@ -1,4 +1,5 @@
-(ns tuhoaja666.calculator.model)
+(ns tuhoaja666.calculator.model
+  (:require [cljs.spec.alpha :as s]))
 
 ;; Paths
 (def base-path [:calculator])
@@ -16,3 +17,9 @@
 (def times :calculator/times)
 (def division :calculator/division)
 (def evaluate :calculator/evaluate)
+
+;; Specs
+(s/def ::literal (s/or
+                   :n int?
+                   :f #{+ - / *}))
+(s/def ::clause (s/coll-of ::literal))

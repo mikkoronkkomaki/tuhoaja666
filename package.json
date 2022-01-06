@@ -2,13 +2,6 @@
 	"scripts": {
 		"clear-target": "rm -rf target",
 		"dev": "sh dev/fix-shadow-cljs-nrepl.sh",
-		"prod": "npm ci && npm run clear-target && npx shadow-cljs release tuhoaja666",
-		"dev-npm": "npx shadow-cljs -A:dev watch tuhoaja666-npm",
-		"pretest": "npm run clear-target && mkdir -p target/test/resources",
-		"test": "npm run pretest && npx shadow-cljs -A:dev watch test",
-		"preci": "npm ci && npm run clear-target && mkdir -p target/test/resources",
-		"ci": "npm run preci && npx shadow-cljs -A:test compile ci && npx karma start",
-		"webpack-dev": "npx concurrently \"npm run dev-npm\" \"npx webpack-dev-server\"",
 		"clean": "rm -rf target node_modules .shadow-cljs .cpcache dist"
 	},
 	"dependencies": {

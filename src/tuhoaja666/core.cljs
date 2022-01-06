@@ -9,15 +9,10 @@
     [stylefy.core :as stylefy]
     [stylefy.reagent :as stylefy-reagent]
     [tuhoaja666.app.view :as app-view]
-    [tuhoaja666.config :as config]
     [tuhoaja666.events :as events]
     [tuhoaja666.routes :as routes]))
 
 (defonce selected-view (r/atom nil))
-
-(defn dev-setup []
-  (when config/debug?
-    (println "dev mode")))
 
 (defn ^:dev/after-load mount-root []
   (re-frame/clear-subscription-cache!)
@@ -32,5 +27,4 @@
 
 (defn init []
   (re-frame/dispatch-sync [::events/initialize-db])
-  (dev-setup)
   (mount-root))

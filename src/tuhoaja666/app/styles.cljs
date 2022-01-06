@@ -15,7 +15,7 @@
 
 (def navigation-label
   {:font-family font/font-family-heading
-   :font-size font-size/font-size-small
+   :font-size font-size/font-size-x-large
    :align-self "center"
    :text-decoration "none"
    :color color/color-pinky-dark

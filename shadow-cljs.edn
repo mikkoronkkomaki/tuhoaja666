@@ -8,5 +8,8 @@
            :asset-path "/js/compiled"
            :modules
            {:app {:init-fn tuhoaja666.core/init}}
-           :devtools {:preloads []}
-           :dev {:compiler-options {:closure-defines {}}}}}}
+           :devtools {:preloads [devtools.preload
+                                 day8.re-frame-10x.preload]}
+           :dev {:compiler-options {:closure-defines {goog.DEBUG true
+                                                      "re_frame.trace.trace_enabled_QMARK_" true
+                                                      "day8.re_frame.tracing.trace_enabled_QMARK_" true}}}}}}

@@ -15,12 +15,12 @@
                               styles/wide-button
                               styles/button))
     [button/primary-small {:content (str number)
-                           :on-click-fn #(re-frame/dispatch [model/append-to-current-value number])}]]))
+                           :on-click-fn #(re-frame/dispatch [model/append-value number])}]]))
 
-(defn function-button [name]
+(defn function-button [name function-fn]
   [:div (stylefy/use-style styles/button)
    [button/primary-small {:content name
-                          :on-click-fn #()}]])
+                          :on-click-fn function-fn}]])
 
 (defn calculator []
   (let [current-value (re-frame/subscribe [model/current-value])]
@@ -32,8 +32,8 @@
      [:p]
 
      [:div (stylefy/use-style styles/function-grid)
-      [function-button "="]
-      [function-button "C"]]
+      [function-button "=" #(re-frame/dispatch [model/evaluate])]
+      [function-button "C" #(re-frame/dispatch [model/reset])]]
 
      [:p]
 
@@ -41,14 +41,14 @@
       [number-button 1]
       [number-button 2]
       [number-button 3]
-      [function-button "+"]
+      [function-button "+" #(re-frame/dispatch [model/add])]
       [number-button 4]
       [number-button 5]
       [number-button 6]
-      [function-button "-"]
+      [function-button "-" #(re-frame/dispatch [model/substract])]
       [number-button 7]
       [number-button 8]
       [number-button 9]
-      [function-button "*"]
+      [function-button "*" #(re-frame/dispatch [model/times])]
       [number-button true 0]
-      [function-button "/"]]]))
+      [function-button "/" #(re-frame/dispatch [model/division])]]]))

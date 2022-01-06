@@ -6,8 +6,7 @@
           {:target :browser
            :output-dir "resources/public/js/compiled"
            :asset-path "/js/compiled"
-           :modules
-           {:app {:init-fn tuhoaja666.core/init}}
+           :modules {:app {:init-fn tuhoaja666.core/init}}
            :devtools {:preloads [devtools.preload
                                  day8.re-frame-10x.preload]}
            :dev {:compiler-options {:closure-defines {goog.DEBUG true

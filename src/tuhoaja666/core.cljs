@@ -9,7 +9,7 @@
     [stylefy.core :as stylefy]
     [stylefy.reagent :as stylefy-reagent]
     [tuhoaja666.app.view :as app-view]
-    [tuhoaja666.events :as events]
+    [tuhoaja666.calculator.model :as calculator-model]
     [tuhoaja666.routes :as routes]))
 
 (defonce selected-view (r/atom nil))
@@ -26,5 +26,5 @@
     (rdom/render [app-view/app selected-view] root-el)))
 
 (defn init []
-  (re-frame/dispatch-sync [::events/initialize-db])
+  (re-frame/dispatch-sync [calculator-model/reset])
   (mount-root))

@@ -15,10 +15,10 @@
 		"react-dom": "^17.0.1",
 		"react-flip-move": "^3.0.4",
 		"react-highlight.js": "^1.0.7",
-		"shadow-cljs": "^2.9.10",
 		"xmlhttprequest": "^1.8.0"
 	},
 	"devDependencies": {
+		"shadow-cljs": "2.20.2",
 		"concurrently": "^5.2.0",
 		"html-webpack-plugin": "^3.2.0",
 		"karma": "^6.0.0",

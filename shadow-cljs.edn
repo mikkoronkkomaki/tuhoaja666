@@ -2,6 +2,7 @@
  :nrepl {:port 8777}
  :dev-http {8280 "resources/public"
             8290 "target/browser-test"}
+ :fs-watch {:hawk false}
  :builds {:app {:target :browser
                 :output-dir "resources/public/js/compiled"
                 :asset-path "/js/compiled"
@@ -9,8 +10,8 @@
                 :devtools {:preloads [devtools.preload
                                       day8.re-frame-10x.preload]}
                 :dev {:compiler-options {:closure-defines {goog.DEBUG true
-                                                           "re_frame.trace.trace_enabled_QMARK_" true
-                                                           "day8.re_frame.tracing.trace_enabled_QMARK_" true}}}}
+                                                           re-frame.trace/trace-enabled?        true
+                                                           day8.re-frame.tracing/trace-enabled? true}}}}
           :browser-test {:target :browser-test
                          :ns-regexp "-test$"
                          :runner-ns shadow.test.browser

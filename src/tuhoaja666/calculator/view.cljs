@@ -22,33 +22,36 @@
    [button/primary-small {:content name
                           :on-click-fn function-fn}]])
 
-(defn calculator []
+(defn current-value []
   (let [current-value (re-frame/subscribe [model/current-value])]
-    [:div (stylefy/use-style styles/main-container)
-     [:div (stylefy/use-style styles/output-grid)
-      [areas/shadow-area {:styles styles/output-field}
-       [:span @current-value]]]
+    [:div (stylefy/use-style styles/output-grid)
+     [areas/shadow-area {:styles styles/output-field}
+      [:span @current-value]]]))
 
-     [:p]
+(defn calculator []
+  [:div (stylefy/use-style styles/main-container)
+   (current-value)
 
-     [:div (stylefy/use-style styles/function-grid)
-      [function-button "=" #(re-frame/dispatch [model/evaluate])]
-      [function-button "C" #(re-frame/dispatch [model/reset])]]
+   [:p]
 
-     [:p]
+   [:div (stylefy/use-style styles/function-grid)
+    [function-button "=" #(re-frame/dispatch [model/evaluate])]
+    [function-button "C" #(re-frame/dispatch [model/reset])]]
 
-     [:div (stylefy/use-style styles/numpad-grid)
-      [number-button 1]
-      [number-button 2]
-      [number-button 3]
-      [function-button "+" #(re-frame/dispatch [model/add])]
-      [number-button 4]
-      [number-button 5]
-      [number-button 6]
-      [function-button "-" #(re-frame/dispatch [model/substract])]
-      [number-button 7]
-      [number-button 8]
-      [number-button 9]
-      [function-button "*" #(re-frame/dispatch [model/times])]
-      [number-button true 0]
-      [function-button "/" #(re-frame/dispatch [model/division])]]]))
+   [:p]
+
+   [:div (stylefy/use-style styles/numpad-grid)
+    [number-button 1]
+    [number-button 2]
+    [number-button 3]
+    [function-button "+" #(re-frame/dispatch [model/add])]
+    [number-button 4]
+    [number-button 5]
+    [number-button 6]
+    [function-button "-" #(re-frame/dispatch [model/substract])]
+    [number-button 7]
+    [number-button 8]
+    [number-button 9]
+    [function-button "*" #(re-frame/dispatch [model/times])]
+    [number-button true 0]
+    [function-button "/" #(re-frame/dispatch [model/division])]]])

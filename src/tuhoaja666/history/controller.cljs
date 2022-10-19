@@ -1,7 +1,7 @@
 (ns tuhoaja666.history.controller
-  (:require [tuhoaja666.history.model :as model]
+  (:require [clojure.string :as string]
             [re-frame.core :as re-frame]
-            [clojure.string :as string]))
+            [tuhoaja666.history.model :as model]))
 
 (def default-state {:clauses []})
 

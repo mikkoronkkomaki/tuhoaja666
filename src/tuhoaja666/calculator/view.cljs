@@ -1,11 +1,11 @@
 (ns tuhoaja666.calculator.view
   (:require [re-frame.core :as re-frame]
             [stylefy.core :as stylefy]
-            [tuhoaja666.calculator.styles :as styles]
-            [velho-ds.atoms.button :as button]
-            [velho-ds.atoms.area :as areas]
+            [tuhoaja666.calculator.controller]
             [tuhoaja666.calculator.model :as model]
-            [tuhoaja666.calculator.controller]))
+            [tuhoaja666.calculator.styles :as styles]
+            [velho-ds.atoms.area :as areas]
+            [velho-ds.atoms.button :as button]))
 
 (defn number-button
   ([number]

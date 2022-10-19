@@ -1,9 +1,9 @@
 (ns tuhoaja666.history.view
-  (:require [stylefy.core :as stylefy]
-            [tuhoaja666.history.controller :as controller]
+  (:require [re-frame.core :as re-frame]
+            [stylefy.core :as stylefy]
             [tuhoaja666.history.model :as model]
             [tuhoaja666.history.styles :as styles]
-            [re-frame.core :as re-frame]
+            [tuhoaja666.history.controller :as controller]
             [velho-ds.atoms.area :as areas]))
 
 (defn history-page []

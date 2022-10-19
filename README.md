@@ -26,9 +26,7 @@ When `[:app] Build completed` appears in the output, browse to
 
 Open [http://localhost:8290/](http://localhost:8290/) for the test runner.
 
-## Tools
-
-Todo: Translate
+## Tools used
 
 ### [ClojureScript](https://clojurescript.org/)
 

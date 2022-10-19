@@ -27,8 +27,6 @@
 (re-frame/reg-event-db calculator-model/reset reset)
 
 (defn add-operator [db operator]
-  (def db db)
-  (def operator operator)
   (let [current-value (get-in db calculator-model/current-value-path)]
     (-> db
         (update-in calculator-model/clause-path #(concat % [current-value operator]))

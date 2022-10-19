@@ -16,6 +16,10 @@ A simple [Re-Frame](https://github.com/day8/re-frame) demo app.
 npm install
 npm run dev
 ```
+or if the deps bite you in the rear 
+```
+npm install --legacy-peer-deps
+```
 
 When `[:app] Build completed` appears in the output, browse to
 [http://localhost:8280/](http://localhost:8280/).

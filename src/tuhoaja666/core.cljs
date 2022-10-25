@@ -17,16 +17,21 @@
 
 (defn ^:dev/after-load mount-root []
   (re-frame/clear-subscription-cache!)
+
+  ;; Start the router
   (rfe/start!
     (rf/router routes/routes {:data {:coercion rss/coercion}})
     (fn [m] (reset! selected-view m))
     {:use-fragment true})
-  (let [root-el (.getElementById js/document "app")]
+
+  ;; Find the route element and render the app
+  (let [root-element (.getElementById js/document "app")]
     (stylefy/init {:dom (stylefy-reagent/init)})
-    (rdom/unmount-component-at-node root-el)
-    (rdom/render [app-view/app selected-view] root-el)))
+    (rdom/unmount-component-at-node root-element)
+    (rdom/render [app-view/app selected-view] root-element)))
 
 (defn init []
+  ;; Reset internal state
   (re-frame/dispatch-sync [calculator-model/reset])
   (re-frame/dispatch-sync [history-model/reset])
   (mount-root))

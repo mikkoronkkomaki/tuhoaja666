@@ -35,7 +35,7 @@ ClojureScript is basically a compiler for compiling Clojure into JavaScript. Use
 
 ### [Leiningen](https://leiningen.org/)
 
-Tool for Clojure project management. In this case used only for creating the project using a template [Re-Frame -templateprojektia](https://github.com/day8/re-frame-template).
+Tool for Clojure project management. In this case used only for creating the project using a template [Re-Frame -template project](https://github.com/day8/re-frame-template).
 A rather nifty way to get a working project template straight out of the box.
 
 

@@ -5,10 +5,10 @@
 
 (def default-state {:clauses []})
 
-(re-frame/reg-sub
-  model/clauses
-  (fn [db]
-    (get-in db model/clauses-path)))
+(defn clauses [db]
+  (get-in db model/clauses-path))
+
+(re-frame/reg-sub model/clauses clauses)
 
 (defn formatted-clauses [clauses]
   (->> (map (fn [{:keys [clause result]}]

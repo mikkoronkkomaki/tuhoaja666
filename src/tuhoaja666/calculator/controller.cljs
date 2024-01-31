@@ -8,10 +8,10 @@
                     :clause []})
 (def max-input-value 10000)
 
-(re-frame/reg-sub
-  calculator-model/current-value
-  (fn [db]
-    (get-in db calculator-model/current-value-path)))
+(defn current-value [db]
+  (get-in db calculator-model/current-value-path))
+
+(re-frame/reg-sub calculator-model/current-value  current-value)
 
 (defn append-value [db [_ value]]
   (let [old-value (get-in db calculator-model/current-value-path)
